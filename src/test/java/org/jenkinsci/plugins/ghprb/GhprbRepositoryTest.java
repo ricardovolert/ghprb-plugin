@@ -280,6 +280,8 @@ public class GhprbRepositoryTest {
         verify(helper, times(2)).checkSkipBuild(eq(ghPullRequest));
         verify(helper, times(2)).getBlackListLabels();
         verify(helper, times(2)).getWhiteListLabels();
+        verify(helper).getIncludedRegionPatterns();
+        verify(helper).getExcludedRegionPatterns();
         verifyNoMoreInteractions(helper);
 
         verify(ghUser, times(1)).getEmail(); // Call to Github API
@@ -458,6 +460,8 @@ public class GhprbRepositoryTest {
         verify(helper, times(2)).checkSkipBuild(eq(ghPullRequest));
         verify(helper, times(2)).getBlackListLabels();
         verify(helper, times(2)).getWhiteListLabels();
+        verify(helper).getIncludedRegionPatterns();
+        verify(helper).getExcludedRegionPatterns();
         verifyNoMoreInteractions(helper);
 
         verify(ghUser, times(1)).getEmail(); // Call to Github API
@@ -556,6 +560,8 @@ public class GhprbRepositoryTest {
         verify(helper).isTriggerPhrase(eq("comment body"));
         verify(helper, times(4)).isProjectDisabled();
         verify(helper, times(2)).checkSkipBuild(eq(ghPullRequest));
+        verify(helper).getIncludedRegionPatterns();
+        verify(helper).getExcludedRegionPatterns();
         verifyNoMoreInteractions(helper);
 
         verify(ghUser, times(1)).getEmail(); // Call to Github API
@@ -649,6 +655,8 @@ public class GhprbRepositoryTest {
         verify(helper, times(2)).getBlackListTargetBranches();
         verify(helper, times(2)).getBlackListLabels();
         verify(helper, times(2)).getWhiteListLabels();
+        verify(helper, times(2)).getIncludedRegionPatterns();
+        verify(helper, times(2)).getExcludedRegionPatterns();
 
         verify(helper).isWhitelistPhrase(eq("test this please"));
         verify(helper).isOktotestPhrase(eq("test this please"));
